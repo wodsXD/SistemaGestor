@@ -1,0 +1,25 @@
+/* aqui comineza el css unicamente del menu */
+.menu-navegacion ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinea los elementos horizontalmente */
+    background-color: #333;
+}
+
+.menu-navegacion li {
+    margin-right: 20px;
+}
+
+.menu-navegacion li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-navegacion li a:hover {
+    background-color: #111; /* Efecto al pasar el mouse */
+}
+/* aqui termina el css del menu xd*/
