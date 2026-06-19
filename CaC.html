@@ -4,9 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambio de carrera a carrera</title>
+
+    <style>
+        body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header{
+    background-color: white;
+    color: black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    width: 180px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+.barra-separadora{
+    height: 50px;
+    background: linear-gradient(
+        90deg,
+        #483D8B,
+        #5b4bb7,
+        #483D8B
+    );
+}
+
+/* Dashboard */
+.dashboard{
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+
+    flex: 1;
+}
+
+/* Tarjetas */
+.card{
+    background-color: white;
+    text-decoration: none;
+    color: black;
+
+    border-radius: 15px;
+    padding: 25px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+}
+
+.card h3{
+    color: #483D8B;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card p{
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer{
+    background-color: #483D8B;
+    color: white;
+    text-align: center;
+
+    padding: 20px;
+}
+
+footer p{
+    margin: 5px;
+}
+    </style>
 </head>
 <body>
-    <h1>Cambio de Carrera a carrera</h1> <br>
-    <!--Esta opcion es solo dentro del mismo itesi, ojo con eso xddd-->
+
+    <!-- Header -->
+    <header>
+        <img src="TecnologicoNacionalMexico.png" alt="Logo" class="logo">
+        Sistema de cambio de carreras
+    </header>
+
+    <div class="barra-separadora"></div>
+
+    <!-- Tarjetas -->
+    <main>
+
+
+    </main>
+
+    
+    <footer>
+        <p>Sistema Gestor de Validación de Materias</p>
+    </footer>
+
 </body>
 </html>
