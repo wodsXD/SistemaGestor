@@ -1,8 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 //cambiar el api porque esta es de mi cuenta xdd
 //usas solo para pruebas w
-//no dejar apis aqui que se la roban xd
-const ai = new ({''})
+const ai = new GoogleGenAI ({apiKey: 'AQ.Ab8RN6KCdo2-UqEnR47vgldb_XXTij4f2Ny5N4OLQg7YoEBlRg'})
 
 async function checkdocs(){
     const response = await ai.models.generateContent({

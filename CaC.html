@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Tecnologico_logo.png">
     <title>Cambio de carrera a carrera</title>
 
     <style>
@@ -44,6 +45,33 @@ header{
         #5b4bb7,
         #483D8B
     );
+}
+
+.menu{
+    margin: 0;
+    padding: 0 50px;
+    height: 50px;
+
+    list-style: none;
+    display: flex;
+    justify-content:flex-start; 
+    align-items: center;
+}
+
+.menu li{
+    margin-left: 30px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 40px 10px;
+}
+
+.menu a:hover{
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 5px;
 }
 
 /* Dashboard */
@@ -109,10 +137,18 @@ footer p{
     <!-- Header -->
     <header>
         <img src="TecnologicoNacionalMexico.png" alt="Logo" class="logo">
-        Sistema de cambio de carreras
+        Cambio de carrera a carrera
     </header>
 
-    <div class="barra-separadora"></div>
+    <div class="barra-separadora">
+        <ul class="menu">
+        <li><a href="index.html">Pagina principal</a></li>
+        <li><a href="CTT.html">Cambio de TecNM a TecNM</a></li>
+        <li><a href="UAT.html">Externa a TecNM</a></li>
+        <li><a href="PE.html">Programas de estudio</a></li>
+        <li><a href="CDK.html">Configuracion de Kardex</a></li>
+    </ul>
+    </div>
 
     <!-- Tarjetas -->
     <main>
