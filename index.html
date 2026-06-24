@@ -1,74 +1,506 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA GESTOR DE VALIDACION DE MATERIAS</title>
-    <link rel="icon" type="image/png" href="Tecnologico_logo.png">
-    <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revalida · Sistema de Revalidación de Materias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+</head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="TecnologicoNacionalMexico.png" alt="Logo" class="logo">
-        Sistema de cambio de carreras
-    </header>
+<div class="app">
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-text">
+        <div class="name">Revalida</div>
+        <div class="sub">Revalidación de Materias</div>
+      </div>
+    </div>
 
-    <div class="barra-separadora"></div>
+    <nav class="navlist">
+      <div class="nav-label">Principal</div>
+      <a href="#" class="nav-item active" data-view="home">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-3m0 0l7-4 7 4M5 10v10a1 1 0 001 1h3m10-11l2 3m-2-3V9m-5 4h5m-5 0a1 1 0 011-1h2a1 1 0 011 1m-5 0v5a1 1 0 001 1h6a1 1 0 001-1v-5m-5 0h5m-5 0V7a1 1 0 011-1h2a1 1 0 011 1v4"/></svg>
+        Inicio
+      </a>
+      <a href="#" class="nav-item" data-view="solicitud">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Nueva solicitud
+      </a>
+      <a href="#" class="nav-item" data-view="resultados">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        Resultados
+      </a>
 
-    <!-- Tarjetas -->
-    <main class="dashboard">
+      <div class="nav-label" style="margin-top:20px;">Administración</div>
+      <a href="#" class="nav-item" data-view="temarios">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.248 6.253 2 10.501 2 15.5S6.248 24.747 12 24.747s10-4.248 10-9.247S17.752 6.253 12 6.253z"/></svg>
+        Temarios
+      </a>
+      <a href="#" class="nav-item" data-view="equivalencias">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10h.01M11 10h.01M7 10h.01M4 20h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Equivalencias
+      </a>
+      <a href="#" class="nav-item" data-view="dictamenes">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Dictámenes
+      </a>
+    </nav>
 
-        <a href="CaC.html" class="card">
-            <h3>Cambio carrera a carrera</h3>
-            <p>
-                Gestiona y evalua los posibles cambios de carrera a carrera dentro del mismo plantel
-            </p>
-        </a>
+    <div class="sidebar-foot">
+      <div class="user-chip">
+        <div class="avatar">A</div>
+        <div>
+          <div>Admin</div>
+          <div class="role">Administrador</div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-        <a href="CTT.html" class="card">
-            <h3>Cambio de TecNM a TecNM</h3>
-            <p>
-                Validación y equivalencia de materias entre tecnológicos.
-            </p>
-        </a>
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <!-- ===================== INICIO ===================== -->
+    <section class="view active" id="view-home">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Bienvenida</div>
+          <h1>Panel de Control</h1>
+          <div class="date">Gestiona revalidaciones de materias</div>
+        </div>
+        <button class="btn btn-primary" data-view-link="solicitud">+ Nueva solicitud</button>
+      </div>
 
-        <a href="UAT.html" class="card">
-            <h3>Otra Universidad a TecNM</h3>
-            <p>
-                Revisión y validación de materias provenientes de otras universidades que no sean Tecnológicos
-            </p>
-        </a>
+      <div class="grid-stats">
+        <div class="card stat-card">
+          <div class="sello" style="--p:75"></div>
+          <div>
+            <div class="label">Solicitudes procesadas</div>
+            <div class="value">12</div>
+          </div>
+        </div>
+        <div class="card stat-card">
+          <div class="sello" style="--p:90"></div>
+          <div>
+            <div class="label">Materias validadas</div>
+            <div class="value">48</div>
+          </div>
+        </div>
+        <div class="card stat-card">
+          <div class="sello" style="--p:60"></div>
+          <div>
+            <div class="label">Equivalencias guardadas</div>
+            <div class="value">34</div>
+          </div>
+        </div>
+        <div class="card stat-card">
+          <div class="sello" style="--p:45"></div>
+          <div>
+            <div class="label">Dictámenes generados</div>
+            <div class="value">8</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <a href="PDE.html" class="card">
-            <h3>Plan de Estudio</h3>
-            <p>
-                Consulta y administración de planes de estudio vigentes.
-            </p>
-        </a>
+    <!-- ===================== NUEVA SOLICITUD ===================== -->
+    <section class="view" id="view-solicitud">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Proceso de revalidación</div>
+          <h1>Nueva Solicitud</h1>
+          <div class="date">Selecciona el tipo de cambio para comenzar</div>
+        </div>
+      </div>
 
-        <a href="PE.html" class="card">
-            <h3>Programas de Estudio</h3>
-            <p>
-                Configuración y actualización de programas académicos.
-            </p>
-        </a>
+      <div class="stepper" id="stepper">
+        <div class="step done">
+          <div class="num">1</div>
+          <div class="lbl">Tipo de cambio</div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="lbl">Documentos</div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="lbl">Datos del alumno</div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="lbl">Validación de materias</div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div class="lbl">Generar dictamen</div>
+        </div>
+      </div>
 
-        <a href="CDK.html" class="card">
-            <h3>Configuración de Kardex</h3>
-            <p>
-                Administración de historiales académicos y equivalencias.
-            </p>
-        </a>
+      <!-- PASO 1: Seleccionar tipo de cambio -->
+      <div id="step-1" class="step-content">
+        <div class="topbar">
+          <div>
+            <h2 style="font-size:20px;margin:0;">¿Cuál es el tipo de cambio?</h2>
+            <p style="color:var(--ink-soft);margin:8px 0 0;font-size:14px;">Selecciona una opción para continuar</p>
+          </div>
+        </div>
 
-    </main>
+        <div class="option-grid">
+          <div class="option-card" data-tipo="carrera-carrera">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C6.248 6.253 2 10.501 2 15.5S6.248 24.747 12 24.747s10-4.248 10-9.247S17.752 6.253 12 6.253z"/></svg>
+            <div class="title">Carrera a Carrera</div>
+            <div class="desc">Cambio de carrera dentro de la misma institución (ITESI)</div>
+          </div>
 
-    
-    <footer>
-        <p>Sistema Gestor de Validación de Materias</p>
-    </footer>
+          <div class="option-card" data-tipo="tecnm-tecnm">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C6.248 6.253 2 10.501 2 15.5S6.248 24.747 12 24.747s10-4.248 10-9.247S17.752 6.253 12 6.253z"/></svg>
+            <div class="title">TecNM a TecNM</div>
+            <div class="desc">Transferencia de una institución TecNM a otra</div>
+          </div>
 
+          <div class="option-card" data-tipo="otra-tecnm">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C6.248 6.253 2 10.501 2 15.5S6.248 24.747 12 24.747s10-4.248 10-9.247S17.752 6.253 12 6.253z"/></svg>
+            <div class="title">Otra Universidad a TecNM</div>
+            <div class="desc">Admisión de estudiante de otra institución educativa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2: Cargar documentos -->
+      <div id="step-2" class="step-content" style="display:none;">
+        <div class="topbar">
+          <div>
+            <h2 style="font-size:20px;margin:0;">Carga los documentos requeridos</h2>
+            <p style="color:var(--ink-soft);margin:8px 0 0;font-size:14px;">Sube la solicitud y el kardex del alumno</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="file-input-wrapper">
+            <div class="dropzone" id="dropzone-solicitud">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16v-4m0-4v4m0 0h4m-4 0H8M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              <div class="title">Solicitud del alumno</div>
+              <div class="hint">Arrastra el PDF o imagen, o haz clic para elegir</div>
+            </div>
+            <input type="file" id="file-solicitud" accept=".pdf,.jpg,.jpeg,.png,.webp">
+          </div>
+
+          <div class="file-input-wrapper">
+            <div class="dropzone" id="dropzone-kardex">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17V9m4 8V5m4 12v-6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              <div class="title">Kardex del alumno</div>
+              <div class="hint">PDF · máximo 10 MB</div>
+            </div>
+            <input type="file" id="file-kardex" accept=".pdf">
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:24px;">
+          <button class="btn btn-outline" onclick="goToStep(1)">← Atrás</button>
+          <button class="btn btn-primary" onclick="goToStep(3)" id="btn-continue-docs">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: Datos del alumno (IA) -->
+      <div id="step-3" class="step-content" style="display:none;">
+        <div class="topbar">
+          <div>
+            <h2 style="font-size:20px;margin:0;">Datos extraídos por la IA</h2>
+            <p style="color:var(--ink-soft);margin:8px 0 0;font-size:14px;">Revisa y confirma los datos del alumno</p>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <div class="panel-head">
+            <h3>Información del alumno</h3>
+            <span class="field mono" style="color:var(--green);font-size:11px;">✓ Datos extraídos</span>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label>Nombre del alumno</label>
+              <input type="text" id="input-nombre" placeholder="Juan Carlos Pérez López" value="Juan Carlos Pérez López">
+            </div>
+            <div class="field">
+              <label>Número de control</label>
+              <input type="text" id="input-control" placeholder="16110234" class="mono" value="16110234">
+            </div>
+            <div class="field">
+              <label>Carrera de origen</label>
+              <select id="select-origen">
+<option value="ing-aeronautica">Ingeniería Aeronáutica</option>
+<option value="ing-ambiental">Ingeniería Ambiental</option>
+<option value="ing-bioquimica">Ingeniería Bioquímica</option>
+<option value="ing-electromecanica">Ingeniería Electromecánica</option>
+<option value="ing-electronica">Ingeniería Electrónica</option>
+<option value="ing-gestion-empresarial">Ingeniería en Gestión Empresarial</option>
+<option value="ing-industrial">Ingeniería Industrial</option>
+<option value="ing-informatica">Ingeniería Informática</option>
+<option value="ing-innovacion-agricola-sustentable">Ingeniería en Innovación Agrícola Sustentable</option>
+<option value="ing-logistica">Ingeniería en Logística</option>
+<option value="ing-materiales">Ingeniería en Materiales</option>
+<option value="ing-mecatronica">Ingeniería Mecatrónica</option>
+<option value="ing-quimica">Ingeniería Química</option>
+<option value="ing-sistemas-automotrices">Ingeniería en Sistemas Automotrices</option>
+<option value="ing-sistemas-computacionales">Ingeniería en Sistemas Computacionales</option>
+<option value="lic-biologia">Licenciatura en Biología</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Carrera destino</label>
+              <select id="select-destino">
+<option value="ing-aeronautica">Ingeniería Aeronáutica</option>
+<option value="ing-ambiental">Ingeniería Ambiental</option>
+<option value="ing-bioquimica">Ingeniería Bioquímica</option>
+<option value="ing-electromecanica">Ingeniería Electromecánica</option>
+<option value="ing-electronica">Ingeniería Electrónica</option>
+<option value="ing-gestion-empresarial">Ingeniería en Gestión Empresarial</option>
+<option value="ing-industrial">Ingeniería Industrial</option>
+<option value="ing-informatica">Ingeniería Informática</option>
+<option value="ing-innovacion-agricola-sustentable">Ingeniería en Innovación Agrícola Sustentable</option>
+<option value="ing-logistica">Ingeniería en Logística</option>
+<option value="ing-materiales">Ingeniería en Materiales</option>
+<option value="ing-mecatronica">Ingeniería Mecatrónica</option>
+<option value="ing-quimica">Ingeniería Química</option>
+<option value="ing-sistemas-automotrices">Ingeniería en Sistemas Automotrices</option>
+<option value="ing-sistemas-computacionales">Ingeniería en Sistemas Computacionales</option>
+<option value="lic-biologia">Licenciatura en Biología</option>  
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:24px;">
+          <button class="btn btn-outline" onclick="goToStep(2)">← Atrás</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- PASO 4: Validación de materias -->
+      <div id="step-4" class="step-content" style="display:none;">
+        <div class="topbar">
+          <div>
+            <h2 style="font-size:20px;margin:0;">Validación de Materias</h2>
+            <p style="color:var(--ink-soft);margin:8px 0 0;font-size:14px;">Revisa y ajusta las materias validadas</p>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <div class="panel-head">
+            <h3>Materias que se pueden validar</h3>
+            <span class="status">8 materias</span>
+          </div>
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th>Materia de origen</th>
+                <th>Calificación</th>
+                <th>Materia destino</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Programación I</td>
+                <td><strong>8.5</strong></td>
+                <td>Fundamentos de Programación</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Cálculo Diferencial</td>
+                <td><strong>7.8</strong></td>
+                <td>Matemáticas I</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Física General</td>
+                <td><strong>8.2</strong></td>
+                <td>Física I</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Base de Datos</td>
+                <td><strong>9.1</strong></td>
+                <td>Gestión de Datos</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Inglés I</td>
+                <td><strong>7.5</strong></td>
+                <td>Idioma Extranjero I</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Ética Profesional</td>
+                <td><strong>8.0</strong></td>
+                <td>Ética en Tecnología</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Estructura de Datos</td>
+                <td><strong>8.7</strong></td>
+                <td>Algoritmos II</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+              <tr>
+                <td>Redes de Computadoras</td>
+                <td><strong>7.9</strong></td>
+                <td>Comunicaciones I</td>
+                <td><span class="pill pill-validated">✓ Validada</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card panel" style="margin-top:20px;">
+          <div class="panel-head">
+            <h3>Materias que NO se pueden validar</h3>
+            <span class="status">3 materias</span>
+          </div>
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th>Materia de origen</th>
+                <th>Calificación</th>
+                <th>Razón</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Educación Física</td>
+                <td><strong>10</strong></td>
+                <td>Materia extracurricular, no tiene equivalencia</td>
+              </tr>
+              <tr>
+                <td>Taller de Investigación</td>
+                <td><strong>8.3</strong></td>
+                <td>Materia específica del plan anterior</td>
+              </tr>
+              <tr>
+                <td>Seminario de Titulación</td>
+                <td><strong>9.0</strong></td>
+                <td>No aplicable en la carrera destino</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:24px;">
+          <button class="btn btn-outline" onclick="goToStep(3)">← Atrás</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Generar Dictamen →</button>
+        </div>
+      </div>
+
+      <!-- PASO 5: Generar dictamen -->
+      <div id="step-5" class="step-content" style="display:none;">
+        <div class="topbar">
+          <div>
+            <h2 style="font-size:20px;margin:0;">Generar Dictamen</h2>
+            <p style="color:var(--ink-soft);margin:8px 0 0;font-size:14px;">Descarga el documento oficial de revalidación</p>
+          </div>
+        </div>
+
+        <div class="card panel" style="text-align:center;padding:40px;">
+          <div style="margin-bottom:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto;color:var(--blue);">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/>
+            </svg>
+          </div>
+          <h3 style="margin:0 0 8px;">Dictamen listo para descargar</h3>
+          <p style="color:var(--ink-soft);margin:0 0 24px;">Se ha generado el documento oficial con los datos del alumno y las materias validadas</p>
+          
+          <div class="card" style="background:var(--white-soft);padding:16px;margin-bottom:24px;text-align:left;border:none;">
+            <div style="font-size:13px;margin-bottom:8px;"><strong>Documento:</strong> Dictamen de Revalidación</div>
+            <div style="font-size:13px;margin-bottom:8px;"><strong>Alumno:</strong> Juan Carlos Pérez López (16110234)</div>
+            <div style="font-size:13px;margin-bottom:8px;"><strong>Materias validadas:</strong> 8</div>
+            <div style="font-size:13px;"><strong>Fecha de generación:</strong> Hoy</div>
+          </div>
+
+          <button class="btn btn-primary" onclick="downloadPDF()" style="margin-right:10px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Descargar PDF
+          </button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;gap:10px;margin-top:24px;">
+          <button class="btn btn-outline" onclick="resetForm()">← Comenzar nueva solicitud</button>
+          <button class="btn btn-outline" onclick="showView('home')">Ir al inicio</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESULTADOS ===================== -->
+    <section class="view" id="view-resultados">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Cálculo en curso</div>
+          <h1>Resultados de Revalidación</h1>
+          <div class="date">Se generan al momento, comparando contra la base de equivalencias</div>
+        </div>
+      </div>
+
+      <div class="empty-state">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <h3>No hay resultados todavía</h3>
+        <p>Los resultados aparecen en el momento, una vez que se procese una solicitud. No se conservan resultados de procesos anteriores.</p>
+        <button class="btn btn-primary" data-view-link="solicitud">+ Nueva solicitud</button>
+      </div>
+    </section>
+
+    <!-- ===================== TEMARIOS ===================== -->
+    <section class="view" id="view-temarios">
+      <div class="topbar">
+        <div><div class="eyebrow">Administración</div><h1>Temarios</h1></div>
+        <button class="btn btn-primary">+ Subir temario</button>
+      </div>
+
+      <div class="empty-state">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        <h3>No hay temarios cargados</h3>
+        <p>Sube el temario de una carrera para empezar a generar equivalencias automáticamente.</p>
+        <button class="btn btn-primary">+ Subir temario</button>
+      </div>
+    </section>
+
+    <!-- ===================== EQUIVALENCIAS ===================== -->
+    <section class="view" id="view-equivalencias">
+      <div class="topbar">
+        <div><div class="eyebrow">Administración</div><h1>Equivalencias</h1></div>
+        <button class="btn btn-primary">+ Agregar equivalencia</button>
+      </div>
+
+      <div class="search-bar" style="margin-bottom:20px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" placeholder="Buscar materia…">
+      </div>
+
+      <div class="empty-state">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4m-4-4v2a4 4 0 004 4h14"/></svg>
+        <h3>No hay equivalencias registradas</h3>
+        <p>Las equivalencias entre materias aparecerán aquí a medida que se vayan aprobando. Es lo único que el sistema almacena de forma permanente.</p>
+        <button class="btn btn-primary">+ Agregar equivalencia</button>
+      </div>
+    </section>
+
+    <!-- ===================== DICTÁMENES ===================== -->
+    <section class="view" id="view-dictamenes">
+      <div class="topbar">
+        <div><div class="eyebrow">Documentos generados</div><h1>Dictámenes</h1></div>
+      </div>
+
+      <div class="empty-state">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+        <h3>No hay dictámenes generados</h3>
+        <p>Cuando se complete una revalidación, podrás generar y descargar el dictamen oficial desde aquí.</p>
+        <button class="btn btn-primary" data-view-link="solicitud">+ Nueva solicitud</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
